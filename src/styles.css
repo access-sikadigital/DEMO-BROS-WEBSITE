@@ -1,0 +1,274 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* ============ Demo Bros Design System ============
+   Dark-first, industrial, premium.
+   #1A1A1A charcoal · #F2F1EF bone · #2D9D3A green
+=================================================== */
+
+/* font-weight matches the font's own OS/2 usWeightClass (800). Keep the
+   @utility font-heading weight below in sync — requesting a weight this face
+   doesn't declare makes some browsers synthesise a faux bold. */
+@font-face {
+  font-family: "Akira Expanded";
+  src: url("/fonts/AkiraExpanded.woff2") format("woff2");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Albert Sans";
+  src: url("/fonts/AlbertSans-VariableFont_wght.ttf") format("truetype");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --radius-2xl: calc(var(--radius) + 8px);
+  --font-body: "Albert Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-heading: "Akira Expanded", ui-sans-serif, sans-serif;
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-ring-offset-background: var(--background);
+  --color-light: var(--light);
+  --color-light-foreground: var(--light-foreground);
+  --color-charcoal: var(--charcoal);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+:root {
+  --radius: 0.25rem;
+  /* charcoal #1A1A1A */
+  --background: oklch(0.2178 0 0);
+  --foreground: oklch(0.9583 0.0025 106.45);
+  --card: oklch(0.2519 0 0);
+  --card-foreground: oklch(0.9583 0.0025 106.45);
+  --popover: oklch(0.2519 0 0);
+  --popover-foreground: oklch(0.9583 0.0025 106.45);
+  /* green #2D9D3A */
+  --primary: oklch(0.6172 0.1706 145.15);
+  --primary-foreground: oklch(1 0 0);
+  /* bone #F2F1EF */
+  --secondary: oklch(0.9583 0.0025 106.45);
+  --secondary-foreground: oklch(0.2178 0 0);
+  --muted: oklch(0.2825 0 0);
+  --muted-foreground: oklch(0.7 0 0);
+  --accent: oklch(0.3 0 0);
+  --accent-foreground: oklch(0.9583 0.0025 106.45);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(1 0 0);
+  --border: oklch(1 0 0 / 12%);
+  --input: oklch(1 0 0 / 16%);
+  --ring: oklch(0.6172 0.1706 145.15);
+  --light: oklch(0.9583 0.0025 106.45);
+  --light-foreground: oklch(0.2178 0 0);
+  --charcoal: oklch(0.2178 0 0);
+  --chart-1: oklch(0.6172 0.1706 145.15);
+  --chart-2: oklch(0.7 0 0);
+  --chart-3: oklch(0.5 0 0);
+  --chart-4: oklch(0.85 0.05 145);
+  --chart-5: oklch(0.4 0.1 145);
+  --sidebar: oklch(0.2178 0 0);
+  --sidebar-foreground: oklch(0.9583 0.0025 106.45);
+  --sidebar-primary: oklch(0.6172 0.1706 145.15);
+  --sidebar-primary-foreground: oklch(1 0 0);
+  --sidebar-accent: oklch(0.2825 0 0);
+  --sidebar-accent-foreground: oklch(0.9583 0.0025 106.45);
+  --sidebar-border: oklch(1 0 0 / 12%);
+  --sidebar-ring: oklch(0.6172 0.1706 145.15);
+}
+
+@layer base {
+  * {
+    border-color: var(--color-border);
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    overflow-x: clip;
+  }
+
+  /* overflow-wrap alone breaks a word only when it would otherwise overflow.
+     word-break: break-word (deprecated) was also set and broke words far more
+     eagerly, which is what split "MELBOURNE" across lines on narrow screens. */
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+    overflow-wrap: break-word;
+  }
+
+  p, li, input, button, select, textarea {
+    font-family: var(--font-body);
+  }
+
+  /* Ensure links and spans don't break layouts on small screens */
+  a, span {
+    overflow-wrap: break-word;
+    word-break: break-word;
+  }
+
+  ::selection {
+    background: var(--color-primary);
+    color: var(--color-primary-foreground);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-primary);
+    outline-offset: 3px;
+  }
+}
+
+/* Display heading utility.
+   font-weight must match the @font-face descriptor above (800). Requesting 900
+   against the single 800 face makes some browsers synthesise a faux bold.
+   Akira Expanded is a static CFF font with no variation axes, so font-stretch /
+   font-variation-settings had no effect and are omitted — the family is already
+   expanded by design. */
+@utility font-heading {
+  font-family: var(--font-heading);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  text-transform: uppercase;
+  line-height: 1.05;
+}
+
+/* Typography Scale */
+@utility text-hero {
+  font-size: clamp(3rem, 8vw, 6rem);
+  line-height: 1.05;
+}
+
+@utility text-section-title {
+  font-size: clamp(2.25rem, 5vw, 3.75rem);
+  line-height: 1.1;
+}
+
+@utility text-card-title {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  line-height: 1.2;
+}
+
+@utility text-body-fluid {
+  font-size: clamp(1rem, 1.5vw, 1.125rem);
+  line-height: 1.6;
+}
+
+/* wide container */
+@utility container-wide {
+  width: 100%;
+  margin-inline: auto;
+  max-width: 90rem;
+  padding-inline: clamp(1.25rem, 4.5vw, 4rem);
+}
+
+/* eyebrow label */
+@utility eyebrow {
+  font-size: 0.75rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* thin divider line */
+@utility hairline {
+  height: 1px;
+  background: var(--color-border);
+}
+
+/* marquee */
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+@utility animate-marquee {
+  animation: marquee 36s linear infinite;
+}
+
+/* slow zoom for hero imagery */
+@keyframes slow-zoom {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(1.08);
+  }
+}
+@utility animate-slow-zoom {
+  animation: slow-zoom 18s ease-out forwards;
+}
+
+/* floating dust particles */
+@keyframes dust {
+  0% {
+    transform: translate3d(0, 0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: var(--dust-o, 0.5);
+  }
+  90% {
+    opacity: var(--dust-o, 0.5);
+  }
+  100% {
+    transform: translate3d(var(--dust-x, 40px), -80vh, 0);
+    opacity: 0;
+  }
+}
+@utility animate-dust {
+  animation: dust var(--dust-d, 14s) linear infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}

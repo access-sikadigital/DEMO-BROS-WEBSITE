@@ -1,0 +1,18 @@
+# Force binary handling so these are never line-ending converted or run through a
+# text encoder. AkiraExpanded.woff was previously destroyed that way — every
+# non-ASCII byte became a U+FFFD replacement character and the font stopped
+# loading entirely.
+*.woff  binary
+*.woff2 binary
+*.ttf   binary
+*.otf   binary
+*.eot   binary
+*.ico   binary
+*.jpg   binary
+*.jpeg  binary
+*.png   binary
+*.gif   binary
+*.webp  binary
+*.avif  binary
+*.mp4   binary
+*.mov   binary
