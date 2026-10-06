@@ -9,8 +9,7 @@ export const SITE = {
   phone: "1800 960 625",
   phoneHref: "tel:1800960625",
   email: "info@demobros.com.au",
-  // TODO: Replace placeholder ABN with the real registered ABN before publish (flagged in the SEO pack).
-  abn: "12 345 678 901",
+  abn: "61 282 124 573",
   address: "103/181 Rosamond Rd, Maribyrnong VIC 3032",
 };
 
