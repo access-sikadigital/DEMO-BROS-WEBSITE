@@ -1,9 +1,8 @@
 import { createFileRoute } from "@tanstack/react-router";
 import type {} from "@tanstack/react-start";
-import { services } from "@/lib/site-data";
+import { services, projects, serviceAreas } from "@/lib/site-data";
 
-// TODO: replace with your project URL once a project name or custom domain is set.
-const BASE_URL = "";
+const BASE_URL = "https://demobros.com.au";
 
 interface SitemapEntry {
   path: string;
@@ -24,10 +23,22 @@ export const Route = createFileRoute("/sitemap.xml")({
             changefreq: "monthly" as const,
             priority: "0.8",
           })),
+          { path: "/strip-out-demolition", changefreq: "monthly", priority: "0.8" },
+          { path: "/commercial-demolition", changefreq: "monthly", priority: "0.8" },
           { path: "/commercial", changefreq: "monthly", priority: "0.8" },
           { path: "/industries", changefreq: "monthly", priority: "0.7" },
           { path: "/locations", changefreq: "monthly", priority: "0.7" },
+          ...serviceAreas.map((a) => ({
+            path: `/locations/${a.slug}`,
+            changefreq: "monthly" as const,
+            priority: "0.7",
+          })),
           { path: "/projects", changefreq: "weekly", priority: "0.7" },
+          ...projects.map((p) => ({
+            path: `/projects/${p.slug}`,
+            changefreq: "yearly" as const,
+            priority: "0.5",
+          })),
           { path: "/about", changefreq: "monthly", priority: "0.6" },
           { path: "/reviews", changefreq: "weekly", priority: "0.6" },
           { path: "/faq", changefreq: "monthly", priority: "0.6" },
