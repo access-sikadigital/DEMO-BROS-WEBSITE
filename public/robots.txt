@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://demobros.com.au/sitemap.xml
+Sitemap: https://www.demobros.com.au/sitemap.xml
